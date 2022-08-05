@@ -1,0 +1,27 @@
+{
+    "name": "ostrikov-g/php-kent-becks-xunit",
+    "type": "library",
+    "keywords": [
+        "xunit",
+        "testing"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "OstrikovG\\PhpKentBecksXUnit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\OstrikovG\\PhpKentBecksXUnit\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "OstrikovG",
+            "email": "ostgleal@gmail.com"
+        }
+    ],
+    "require": {
+    }
+}
