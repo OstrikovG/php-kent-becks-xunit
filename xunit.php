@@ -8,3 +8,9 @@ if (ini_get('zend.assertions') != '1') {
         'zend.assertions must be completely only 1 in php.ini'
     );
 }
+
+use Tests\OstrikovG\PhpKentBecksXUnit\TestCaseTest;
+
+require __DIR__ . '/vendor/autoload.php';
+
+(new TestCaseTest("testRunning"))->run();
