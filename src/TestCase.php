@@ -13,8 +13,13 @@ class TestCase
         $this->name = $name;
     }
 
+    protected function setUp(): void
+    {
+    }
+
     public function run(): void
     {
+        $this->setUp();
         $method = $this->name;
         $this->$method();
     }
