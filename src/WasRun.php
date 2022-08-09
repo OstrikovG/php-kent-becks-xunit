@@ -6,24 +6,22 @@ namespace OstrikovG\PhpKentBecksXUnit;
 
 class WasRun extends TestCase
 {
-    public bool $wasRun;
-    public bool $wasSetUp;
+    public string $log;
 
     public function __construct(string $name)
     {
-        $this->wasRun = false;
-        $this->wasSetUp = true;
         parent::__construct($name);
     }
 
     protected function setUp(): void
     {
-        $this->wasRun = false;
-        $this->wasSetUp = true;
+        $this->log = "setUp ";
     }
 
     public function testMethod(): void
     {
-        $this->wasRun = true;
+        $this->log .= "testMethod ";
+        $this->tearDown();
+        $this->log .= "tearDown ";
     }
 }

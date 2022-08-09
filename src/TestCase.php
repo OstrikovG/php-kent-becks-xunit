@@ -6,7 +6,7 @@ namespace OstrikovG\PhpKentBecksXUnit;
 
 class TestCase
 {
-    public string $name;
+    private string $name;
 
     public function __construct(string $name)
     {
@@ -20,7 +20,11 @@ class TestCase
     public function run(): void
     {
         $this->setUp();
-        $method = $this->name;
-        $this->$method();
+        $this->{$this->name}();
+        $this->tearDown();
+    }
+
+    protected function tearDown(): void
+    {
     }
 }
