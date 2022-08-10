@@ -9,11 +9,19 @@ if (ini_get('zend.assertions') != '1') {
     );
 }
 
+use OstrikovG\PhpKentBecksXUnit\TestResult;
+use OstrikovG\PhpKentBecksXUnit\TestSuite;
 use Tests\OstrikovG\PhpKentBecksXUnit\TestCaseTest;
 
 require __DIR__ . '/vendor/autoload.php';
 
-print_r((new TestCaseTest("testTemplateMethod"))->run()->summary() . "\r\n");
-print_r((new TestCaseTest("testResult"))->run()->summary() . "\r\n");
-print_r((new TestCaseTest("testFailedResult"))->run()->summary() . "\r\n");
-print_r((new TestCaseTest("testFailedResultFormatting"))->run()->summary() . "\r\n");
+$suite = new TestSuite();
+$suite->add((new TestCaseTest("testTemplateMethod")));
+$suite->add((new TestCaseTest("testResult")));
+$suite->add((new TestCaseTest("testFailedResult")));
+$suite->add((new TestCaseTest("testFailedResultFormatting")));
+$suite->add((new TestCaseTest("testSuite")));
+$result = new TestResult();
+$suite->run($result);
+
+print_r($result->summary());
