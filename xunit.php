@@ -13,4 +13,5 @@ use Tests\OstrikovG\PhpKentBecksXUnit\TestCaseTest;
 
 require __DIR__ . '/vendor/autoload.php';
 
-(new TestCaseTest("testTemplateMethod"))->run();
+print_r((new TestCaseTest("testTemplateMethod"))->run()->summary() . "\r\n");
+print_r((new TestCaseTest("testResult"))->run()->summary() . "\r\n");
