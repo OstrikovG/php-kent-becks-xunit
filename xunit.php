@@ -15,3 +15,5 @@ require __DIR__ . '/vendor/autoload.php';
 
 print_r((new TestCaseTest("testTemplateMethod"))->run()->summary() . "\r\n");
 print_r((new TestCaseTest("testResult"))->run()->summary() . "\r\n");
+print_r((new TestCaseTest("testFailedResult"))->run()->summary() . "\r\n");
+print_r((new TestCaseTest("testFailedResultFormatting"))->run()->summary() . "\r\n");

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\OstrikovG\PhpKentBecksXUnit;
 
 use OstrikovG\PhpKentBecksXUnit\TestCase;
+use OstrikovG\PhpKentBecksXUnit\TestResult;
 use OstrikovG\PhpKentBecksXUnit\WasRun;
 
 class TestCaseTest extends TestCase
@@ -27,6 +28,14 @@ class TestCaseTest extends TestCase
     {
         $test = new WasRun("testBrokenMethod");
         $result = $test->run();
+        \assert("1 run, 1 failed" == $result->summary());
+    }
+
+    public function testFailedResultFormatting(): void
+    {
+        $result = new TestResult();
+        $result->testStarted();
+        $result->testFailed();
         \assert("1 run, 1 failed" == $result->summary());
     }
 }

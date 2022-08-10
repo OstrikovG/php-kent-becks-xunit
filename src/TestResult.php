@@ -7,10 +7,17 @@ namespace OstrikovG\PhpKentBecksXUnit;
 class TestResult
 {
     private int $runCount;
+    private int $errorCount;
 
     public function __construct()
     {
         $this->runCount = 0;
+        $this->errorCount = 0;
+    }
+
+    public function testFailed(): void
+    {
+        $this->errorCount += 1;
     }
 
     public function testStarted(): void
@@ -20,6 +27,6 @@ class TestResult
 
     public function summary(): string
     {
-        return \sprintf("%d run, 0 failed", $this->runCount);
+        return \sprintf("%d run, %d failed", $this->runCount, $this->errorCount);
     }
 }
